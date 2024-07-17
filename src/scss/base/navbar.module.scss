@@ -1,0 +1,120 @@
+@use "../abstract/variables.scss" as variables;
+@use "../../scss/abstract/animations/globalAnimations.scss" as globalAnimations;
+
+.navbar {
+    display: flex;
+    place-content: center;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    height: 60px;
+    width: 100vw;
+    color: variables.$black;
+    background-color: transparent;
+    z-index: 9999;
+    font-size: variables.$bigFont;
+    gap: 0 10px;
+
+    nav div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0 15px;
+    }
+
+    nav div div {
+        cursor: pointer;
+    }
+
+    &__projectLink, &__aboutLink, &__contactLink {
+        display: none !important;
+    }
+
+    &__homeLink, &__hamburgerContainer{
+        display: flex;
+    }
+
+    &__lightDarkButton{
+        color: inherit;
+        padding: 0;
+        font: inherit;
+        outline: inherit;
+        cursor: pointer;
+
+        display: grid;
+        grid-template-columns: auto auto;
+        background: variables.$black;
+        border-radius: 20px;
+        border: 5px solid variables.$skyBlue;
+        height: 40px;
+        width: 80px;
+        
+        &__sun, &__moon {
+            display: flex !important;
+            border-radius: 20px;
+            position: relative;
+            height: 30px;
+            width: 25px;
+            padding: 30px;
+            padding: 0;
+            margin: 0;
+            place-self: center;
+        }
+
+        &__circle {
+            padding: 15.2px;
+            position: fixed;
+            border-radius: 100px;
+            background-color: variables.$white;
+            z-index: 9999;
+        }
+    }
+
+    &__hamburguer {
+        background: none;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        width: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &__line1, &__line2 {
+            height: 5px;
+            width: 100%;
+            border-radius: 10px;
+        }
+    }
+
+    &__hamburguer:hover {
+        cursor: pointer;
+    }
+
+    &__hiddenMenu {
+        position: fixed;
+        height: 91vh;
+        width: 100vw;
+        bottom: 0;
+        right: 0;
+        background-color: variables.$darkViolet;
+        z-index: 99;
+        display: flex;
+        place-content: center;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}
+
+@media (min-width:800px) {
+    .navbar {
+        &__projectLink, &__aboutLink, &__contactLink {
+            display: flex !important; 
+        }
+
+        &__hamburgerContainer {
+            display: none !important;
+        }
+    }
+}
