@@ -7,11 +7,11 @@
     place-items: center;
     position: fixed;
     top: 0;
-    height: 60px;
+    height: 10vh;
     width: 100vw;
     color: variables.$black;
     background-color: transparent;
-    z-index: 9999;
+    z-index: 99999;
     font-size: variables.$bigFont;
     gap: 0 10px;
 
@@ -93,12 +93,12 @@
 
     &__hiddenMenu {
         position: fixed;
-        height: 91vh;
+        height: 90vh;
         width: 100vw;
         bottom: 0;
         right: 0;
         background-color: variables.$darkViolet;
-        z-index: 99;
+        z-index: 9;
         display: flex;
         place-content: center;
         align-items: center;

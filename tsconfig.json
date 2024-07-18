@@ -1,25 +1,53 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"],
-      "@/_homeComponents*": ["./src/app/(routes)/home/_homeComponents*"],
-      "@/about*": ["./src/app/(routes)/about*"],
-      "@/project*": ["./src/app/(routes)/project*"],
-      "@/contact*": ["./src/app/(routes)/contact*"],
-      "@/store*": ["./src/app/store*"],
-
+      "@/*": [
+        "./src/*"
+      ],
+      "@/_homeComponents*": [
+        "./src/app/(routes)/home/_homeComponents*"
+      ],
+      "@/about*": [
+        "./src/app/(routes)/about*"
+      ],
+      "@/project*": [
+        "./src/app/(routes)/project*"
+      ],
+      "@/contact*": [
+        "./src/app/(routes)/contact*"
+      ],
+      "@/store*": [
+        "./src/app/store*"
+      ],
       //scss paths
-      "@/pages*": ["./src/scss/pages*"],
-      "@/abstract*": ["./src/scss/abstract*"],
-      "@/base*": ["./src/scss/base/*"],
-      "@/animations*": ["./src/scss/abstract/animations*"],
-
+      "@/pages*": [
+        "./src/scss/pages*"
+      ],
+      "@/abstract*": [
+        "./src/scss/abstract*"
+      ],
+      "@/base*": [
+        "./src/scss/base/*"
+      ],
+      "@/animations*": [
+        "./src/scss/abstract/animations*"
+      ],
       //image paths
-      "@/svg*": ["./public/svg*"],
-      "@/ReactJs-Chat-App*": ["./public/cardImages/ReactJs-Chat-App*"],
-      "@/ReactJs-E-commerce*": ["./public/cardImages/ReactJs-E-commerce*"],
-      "@/Employee-CRUD*": ["./public/cardImages/Employee-CRUD*"],
-      "@/ChessJs*": ["./public/cardImages/ChessJs*"]
+      "@/svg*": [
+        "./public/svg*"
+      ],
+      "@/ReactJs-Chat-App*": [
+        "./public/cardImages/ReactJs-Chat-App*"
+      ],
+      "@/ReactJs-E-commerce*": [
+        "./public/cardImages/ReactJs-E-commerce*"
+      ],
+      "@/Employee-CRUD*": [
+        "./public/cardImages/Employee-CRUD*"
+      ],
+      "@/ChessJs*": [
+        "./public/cardImages/ChessJs*"
+      ]
     },
     "lib": [
       "dom",
@@ -47,8 +75,10 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/app/components/(particlejsConfig)/ParticlesBackground.jsx"  ],
+    "**/*.tsx",
+    "src/app/components/(particlejsConfig)/ParticlesBackground.jsx",
+    "build/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]
