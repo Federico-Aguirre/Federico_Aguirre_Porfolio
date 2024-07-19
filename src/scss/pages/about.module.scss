@@ -2,6 +2,7 @@
 @use "../abstract/animations/aboutAnimations.scss";
 
 .about {
+    height: auto;
     width: 100vw;
     display: flex;
     place-content: center;
@@ -22,19 +23,19 @@
             grid-template-rows: 50px 200px;
             grid-template-columns: auto auto;
 
-            &__lenguagesTitle {
+            &__languagesTitle {
                 grid-column: 1/-1;
                 font-size: variables.$bigFont;
                 font-weight: 600;
                 text-align: center;
             }
 
-            &__lenguages1 {
+            &__languages1 {
                 display: grid;
                 place-content: center;
             }
 
-            &__lenguages2 {
+            &__languages2 {
                 display: grid;
                 place-content: center;
             }
@@ -59,7 +60,8 @@
                 text-align: center;
             }
 
-            &__certificates, &__CV {
+            &__certificates,
+            &__CV {
                 display: flex;
                 place-content: center;
                 place-self: center;
@@ -71,11 +73,10 @@
         }
 
         &__text__content {
-            display: grid;
             height: 100%;
             grid-template-rows: 130px auto;
 
-            &__title {  
+            &__title {
                 grid-row: 1;
                 place-content: center;
                 text-align: center;
@@ -83,15 +84,8 @@
                 font-weight: 600;
             }
 
-            &__info {  
+            &__info {
                 margin: 0 50px;
-            }
-        }
-
-        @media (max-width:799px) {
-            .about__container__skills__content, .about__container__studies__content, 
-            .about__container__text__content {
-                display: grid !important;
             }
         }
 
@@ -99,7 +93,10 @@
             display: none;
         }
 
-        &__skills, &__studies, &__text, &__scroll {
+        &__skills,
+        &__studies,
+        &__text,
+        &__scroll {
             display: none;
         }
     }
@@ -114,12 +111,21 @@
     }
 }
 
-@media (min-width:800px) {
+@media (max-width:1024px) {
+
+    .about__container__skills__content,
+    .about__container__text__content,
+    .about__container__studies__content {
+        display: grid !important;
+    }
+}
+
+@media (min-width:1025px) {
     .about {
         height: 90vh;
 
         &__container {
-            height: 69vh;
+            height: 70vh;
             width: 50%;
             padding: 0;
             border-radius: 0;
@@ -135,13 +141,15 @@
 
             &__aboutScroll {
                 display: grid;
-                height: calc(23vh - 3.5px);
+                height: calc((70vh/3) - 7.5px);
                 grid-row: 1/-1;
                 background-color: variables.$skyBlue;
                 transition: 1s;
             }
 
-            &__skills, &__studies, &__text{
+            &__skills,
+            &__studies,
+            &__text {
                 display: grid;
                 place-content: center;
                 background-color: variables.$lightViolet;
@@ -165,13 +173,16 @@
                     padding: 0;
                     line-height: 22px;
 
-                    &__lenguagesTitle {
+
+                    &__languagesTitle {
                         grid-column: 1/-1;
                         place-content: center;
                     }
 
-                    &__lenguages1, &__lenguages2 {
+                    &__languages1,
+                    &__languages2 {
                         align-content: start;
+                        margin-right: 20px;
                     }
                 }
             }
@@ -182,6 +193,8 @@
                 &__content {
                     grid-row: 1/-1;
                     grid-column: 3;
+                    margin: 20px;
+                    row-gap: 0;
                 }
             }
 

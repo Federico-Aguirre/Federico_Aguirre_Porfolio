@@ -8,14 +8,14 @@ import secondProject from "@/ReactJs-E-commerce/ReactJs-E-commerce.png"
 import thirdProject from "@/Employee-CRUD/Employee-CRUD.png"
 import fourthProject from "@/ChessJs/ChessJs.png"
 import { contextStore } from "@/app/store/Context";
-import { motion } from "framer-motion" 
+import { motion } from "framer-motion"
 import { useRef, useEffect } from "react";
 
 const Project = () => {
   const projectSectionRef = useRef();
   const { changeSectionVisible } = contextStore()
   const { darkMode } = contextStore()
-  let toggleShadowClass = darkMode ? "darkModeShadowClass" : "brightModeShadowClass";
+  let toggleShadowClass: string = darkMode ? "darkModeShadowClass" : "brightModeShadowClass";
 
   const fadeInAnimationVariant = {
     initial: {
@@ -38,16 +38,16 @@ const Project = () => {
   }
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
+    const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]): void => {
+      const entry: IntersectionObserverEntry = entries[0];
       entry.isIntersecting &&
-      changeSectionVisible({ sectionVisibleValue: "project" })
+        changeSectionVisible({ sectionVisibleValue: "project" })
     })
     observer.observe(projectSectionRef.current)
   }, [])
 
   return (
-    <motion.section className={projectStyle.project} id="project" variants={fadeInAnimationVariant} initial="initial" whileInView="animate" viewport={{once:true}}>
+    <motion.section className={projectStyle.project} id="project" variants={fadeInAnimationVariant} initial="initial" whileInView="animate" viewport={{ once: true }}>
       <motion.a href="https://federico-aguirre.github.io/ChatApp" target="_blank" className={`${projectStyle.project__card} ${toggleShadowClass}`} variants={fadeInChildrenAnimationVariant}>
         <div className={projectStyle.project__card__text}>
           React.js Chat App
@@ -55,7 +55,7 @@ const Project = () => {
         <div className={projectStyle.project__card__hiddenText}>
           Dependencies: React.js, universal-cookie, CSS, Firebase.
         </div>
-        <Image src={firstProject} alt="Project image" loading="lazy" className={projectStyle.project__card__image}/>
+        <Image src={firstProject} alt="Project image" loading="lazy" className={projectStyle.project__card__image} />
       </motion.a>
 
       <motion.a href="http://reactjs-ecommerce-by-federico-aguirre.netlify.app" target="_blank" className={`${projectStyle.project__card} ${toggleShadowClass}`} variants={fadeInChildrenAnimationVariant}>
@@ -65,7 +65,7 @@ const Project = () => {
         <div className={projectStyle.project__card__hiddenText}>
           Dependencies: React.js, Bootstrap, CSS, react-router-dom, Firebase.
         </div>
-        <Image src={secondProject} alt="Project image" loading="lazy" className={projectStyle.project__card__image}/>
+        <Image src={secondProject} alt="Project image" loading="lazy" className={projectStyle.project__card__image} />
       </motion.a>
 
       <motion.a href="http://reactjs-sql-employee-crud.netlify.app" target="_blank" className={`${projectStyle.project__card} ${toggleShadowClass}`} variants={fadeInChildrenAnimationVariant}>
@@ -74,9 +74,9 @@ const Project = () => {
         </div>
         <div className={projectStyle.project__card__hiddenText}>
           Dependencies: React.js, MySQL, React-router-dom, Supabase, Axios,
-          Body-parcer, Cors, Nodemon, Wouter.
+          Body-parser, Cors, Nodemon, Wouter.
         </div>
-        <Image src={thirdProject} alt="Project image" loading="lazy" className={projectStyle.project__card__image}/>
+        <Image src={thirdProject} alt="Project image" loading="lazy" className={projectStyle.project__card__image} />
       </motion.a>
 
       <motion.a href="https://chessappjs.netlify.app" target="_blank" className={`${projectStyle.project__card} ${toggleShadowClass}`} variants={fadeInChildrenAnimationVariant} ref={projectSectionRef}>
@@ -86,7 +86,7 @@ const Project = () => {
         <div className={projectStyle.project__card__hiddenText}>
           Dependencies: HTML, CSS, JavaScript.
         </div>
-        <Image src={fourthProject} alt="Project image" loading="lazy" className={projectStyle.project__card__image}/>
+        <Image src={fourthProject} alt="Project image" loading="lazy" className={projectStyle.project__card__image} />
       </motion.a>
     </motion.section>
   )

@@ -11,21 +11,21 @@ const CallToAction = () => {
   let toggleShadowClass = darkMode ? "darkModeShadowClass" : "brightModeShadowClass";
 
   const showFromBelowAnimation = {
-    initial: { 
-      opacity: 0, 
-      y: 200,    
+    initial: {
+      opacity: 0,
+      y: 200,
     },
-    animate: { 
-      opacity: 1, 
-      y: 0,       
+    animate: {
+      opacity: 1,
+      y: 0,
       transition: {
         delay: .5,
         duration: .3,
-      } 
+      }
     },
   }
 
-  const menuItems = [
+  const menuItems: { id: number; title: string; }[] = [
     {
       id: 1,
       title: "project",
@@ -33,8 +33,8 @@ const CallToAction = () => {
   ]
 
   return (
-    <motion.div className={`${homeStyle.homePage__CallToAction} ${toggleShadowClass}`} variants={showFromBelowAnimation} initial="initial" animate="animate"  whileHover={{ scale: 1.2 }}>
-      {menuItems.map((menu, index) => (
+    <motion.div className={`${homeStyle.homePage__CallToAction} ${toggleShadowClass}`} variants={showFromBelowAnimation} initial="initial" animate="animate" whileHover={{ scale: 1.2 }}>
+      {menuItems.map((menu: { id: number; title: string; }, index: number) => (
         <Link to={menu.title} smooth={true} offset={-40} duration={500} key={index}>
           Watch Projects
         </Link>

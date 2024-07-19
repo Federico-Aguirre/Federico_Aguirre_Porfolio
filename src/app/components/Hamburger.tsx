@@ -5,9 +5,9 @@ import { useToggle } from "@uidotdev/usehooks";
 import { motion, AnimatePresence } from "framer-motion";
 import HiddenMenu from "./HiddenMenu";
 
-const Hamburguer = () => {
-    const [ show, toggle ]: any = useToggle();
-    
+const Hamburger = () => {
+    const [show, toggle]: any = useToggle();
+
     const topLineAnimation = {
         open: {
             x: 0,
@@ -36,27 +36,28 @@ const Hamburguer = () => {
 
     return (
         <motion.div className={navbarStyle.navbar__hamburgerContainer}>
-            <motion.button 
-            onClick={toggle}
-            className={navbarStyle.navbar__hamburguer}
+            <motion.button
+                onClick={toggle}
+                className={navbarStyle.navbar__hamburger}
             >
-                <motion.span 
-                className={navbarStyle.navbar__hamburguer__line1}
-                style={{ backgroundColor: "hsl(0, 0%, 98%)"}}
-                variants={topLineAnimation} initial={false} animate={show ? "open" : "closed"} 
+                <motion.span
+                    className={navbarStyle.navbar__hamburger__line1}
+                    style={{ backgroundColor: "hsl(0, 0%, 98%)" }}
+                    variants={topLineAnimation} initial={false} animate={show ? "open" : "closed"}
                 >
                 </motion.span>
 
-                <motion.span 
-                className={navbarStyle.navbar__hamburguer__line2}
-                style={{ backgroundColor: "hsl(0, 0%, 98%)" }}
-                variants={bottomLineAnimation} initial={false} animate={show ? "open" : "closed"} 
+                <motion.span
+                    className={navbarStyle.navbar__hamburger__line2}
+                    style={{ backgroundColor: "hsl(0, 0%, 98%)" }}
+                    variants={bottomLineAnimation} initial={false} animate={show ? "open" : "closed"}
                 >
 
                 </motion.span>
             </motion.button>
             <AnimatePresence>{show && <HiddenMenu />}</AnimatePresence>
         </motion.div>
-    )}
+    )
+}
 
-export default Hamburguer;
+export default Hamburger;

@@ -2,16 +2,16 @@
 @use "../../scss/abstract/animations/globalAnimations.scss" as globalAnimations;
 
 .navbar {
+    position: sticky;
+    top: 0;
     display: flex;
     place-content: center;
     place-items: center;
-    position: fixed;
-    top: 0;
-    height: 10vh;
+    height: 60px;
     width: 100vw;
+    z-index: 9999;
     color: variables.$black;
     background-color: transparent;
-    z-index: 99999;
     font-size: variables.$bigFont;
     gap: 0 10px;
 
@@ -22,19 +22,23 @@
         gap: 0 15px;
     }
 
+
     nav div div {
         cursor: pointer;
     }
 
-    &__projectLink, &__aboutLink, &__contactLink {
+    &__projectLink,
+    &__aboutLink,
+    &__contactLink {
         display: none !important;
     }
 
-    &__homeLink, &__hamburgerContainer{
+    &__homeLink,
+    &__hamburgerContainer {
         display: flex;
     }
 
-    &__lightDarkButton{
+    &__lightDarkButton {
         color: inherit;
         padding: 0;
         font: inherit;
@@ -48,8 +52,9 @@
         border: 5px solid variables.$skyBlue;
         height: 40px;
         width: 80px;
-        
-        &__sun, &__moon {
+
+        &__sun,
+        &__moon {
             display: flex !important;
             border-radius: 20px;
             position: relative;
@@ -70,7 +75,7 @@
         }
     }
 
-    &__hamburguer {
+    &__hamburger {
         background: none;
         border: none;
         outline: none;
@@ -80,20 +85,21 @@
         flex-direction: column;
         justify-content: center;
 
-        &__line1, &__line2 {
+        &__line1,
+        &__line2 {
             height: 5px;
             width: 100%;
             border-radius: 10px;
         }
     }
 
-    &__hamburguer:hover {
+    &__hamburger:hover {
         cursor: pointer;
     }
 
     &__hiddenMenu {
         position: fixed;
-        height: 90vh;
+        height: calc(100vh - 60px);
         width: 100vw;
         bottom: 0;
         right: 0;
@@ -107,10 +113,14 @@
     }
 }
 
-@media (min-width:800px) {
+@media (min-width:1025px) {
     .navbar {
-        &__projectLink, &__aboutLink, &__contactLink {
-            display: flex !important; 
+        height: 10vh;
+
+        &__projectLink,
+        &__aboutLink,
+        &__contactLink {
+            display: flex !important;
         }
 
         &__hamburgerContainer {

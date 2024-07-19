@@ -10,17 +10,17 @@ import { useRef, useEffect } from "react";
 
 const HomePage = () => {
 
-  const sentence = "Federico Aguirre Web Developer".split("");
+  const sentence: string[] = "Federico Aguirre Web Developer".split("");
   const homeSectionRef = useRef();
   const { changeSectionVisible } = contextStore()
   const { darkMode } = contextStore()
-  let toggleLetterClass = darkMode ? "darkModeLetterClass" : "brightModeLetterClass";
+  let toggleLetterClass: string = darkMode ? "darkModeLetterClass" : "brightModeLetterClass";
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
+    const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]): void => {
+      const entry: IntersectionObserverEntry = entries[0];
       entry.isIntersecting &&
-      changeSectionVisible({ sectionVisibleValue: "home" })
+        changeSectionVisible({ sectionVisibleValue: "home" })
     })
     observer.observe(homeSectionRef.current)
   }, [])
@@ -29,10 +29,10 @@ const HomePage = () => {
     <section className={homeStyle.homePage} id="home">
       <ParticlesBackground />
       <div className={`${homeStyle.homePage__title} ${toggleLetterClass}`} ref={homeSectionRef}>
-        {sentence.map((letter, index) =>
+        {sentence.map((letter: string, index: number) =>
           <TextSpan key={index}>
             <div>
-            {letter === " " ? "\u00A0" : letter}
+              {letter === " " ? "\u00A0" : letter}
             </div>
           </TextSpan>
         )}

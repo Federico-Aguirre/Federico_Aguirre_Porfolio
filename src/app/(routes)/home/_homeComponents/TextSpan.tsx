@@ -2,12 +2,12 @@ import { motion, useAnimationControls } from "framer-motion";
 import { useState } from "react";
 import homeStyle from "@/pages/home.module.scss"
 
-const TextSpan = ({children}) => {
-    const [isplaying, setisplaying] = useState(false)
+const TextSpan = ({ children }) => {
+    const [isPlaying, setIsPlaying] = useState(false)
     const control = useAnimationControls();
 
-    const rubberBand = () => {
-        control.start ({
+    const rubberBand = (): void => {
+        control.start({
             transform: [
                 "scale3d(1, 1, 1)",
                 "scale3d(1.4, .55, 1)",
@@ -17,26 +17,26 @@ const TextSpan = ({children}) => {
                 "scale3d(1, 1, 1)"
             ]
         })
-        setisplaying(true)
+        setIsPlaying(true)
     }
 
-  return (
-    <motion.span
-    className={homeStyle.homePage__title__span}
-    initial="hidden"
-    animate={control}
-    transition={{ staggerChildren: .1 }}
-    aria-hidden
-    onMouseOver={() => {
-        if(!isplaying)
-            rubberBand()
-        }
-    }
-    onAnimationComplete={() => setisplaying(false)}
-    >
-        {children}
-    </motion.span>
-  )
+    return (
+        <motion.span
+            className={homeStyle.homePage__title__span}
+            initial="hidden"
+            animate={control}
+            transition={{ staggerChildren: .1 }}
+            aria-hidden
+            onMouseOver={(): void => {
+                if (!isPlaying)
+                    rubberBand()
+            }
+            }
+            onAnimationComplete={(): void => setIsPlaying(false)}
+        >
+            {children}
+        </motion.span>
+    )
 }
 
 export default TextSpan;

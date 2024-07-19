@@ -3,6 +3,7 @@
 
 .project {
     display: flex;
+    height: auto;
     width: 100vw;
     padding: 30px 0;
     justify-content: center;
@@ -24,13 +25,14 @@
         justify-content: center;
 
         &__image {
+            height: 100%;
             width: 100%;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
             animation: cardShowImageAnimation 0.3s forwards ease-out;
         }
 
-        &__text{
+        &__text {
             display: flex;
             padding: 10px;
             animation: TextAnimation 0.3s forwards ease-out;
@@ -60,15 +62,24 @@
 
 @media (min-width:800px) {
     .project {
+        height: 530px;
         margin-top: 100px;
         display: grid;
-        grid-template-columns: 300px 300px;
-        grid-template-columns: 280px 280px;
-        gap: 0;
+        place-content: center;
+        place-items: center;
+        grid-template-rows: 200px 200px;
+        grid-template-columns: 250px 250px;
+        gap: 30px;
 
         &__card {
             height: 200px;
             width: 250px;
         }
     }
-} 
+}
+
+@media (min-width:1025px) {
+    .project {
+        height: 90vh;
+    }
+}

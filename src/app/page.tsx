@@ -7,9 +7,9 @@ import Contact from "@/contact/Contact"
 import { contextStore } from "@/store/Context"
 
 export default function Home() {
-  const darkMode = contextStore(state => state.darkMode)
-  let toggleSectionClass = darkMode ? "darkModeClass" : "brightModeClass";
-  
+  const darkMode: boolean = contextStore(state => state.darkMode)
+  let toggleSectionClass: string = darkMode ? "darkModeClass" : "brightModeClass";
+
   return (
     <main className={toggleSectionClass}>
       <HomePage />

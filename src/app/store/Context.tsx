@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-interface SectionVisible {
+type SectionVisible = {
     sectionVisibleValue: string
 }
 
@@ -13,11 +13,11 @@ type ContextState = {
 
 export const contextStore = create<ContextState>(set => ({
     darkMode: true,
-    changeDarkMode: () => set((state) => ({ darkMode: !state.darkMode})),
+    changeDarkMode: (): void => set((state: ContextState): { darkMode: boolean } => ({ darkMode: !state.darkMode })),
 
     sectionVisible: {
         sectionVisibleValue: ""
     },
 
-    changeSectionVisible: (newSectionVisible: String) => set((state) => ({ sectionVisible: {...state.sectionVisible, ...newSectionVisible}})),
+    changeSectionVisible: (newSectionVisible: String): void => set((state: ContextState) => ({ sectionVisible: { ...state.sectionVisible, ...newSectionVisible } })),
 }))
