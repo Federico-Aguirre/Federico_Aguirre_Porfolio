@@ -4,6 +4,7 @@ import navbarStyle from "@/base/navbar.module.scss"
 import { useToggle } from "@uidotdev/usehooks";
 import { motion, AnimatePresence } from "framer-motion";
 import HiddenMenu from "./HiddenMenu";
+import { contextStore } from "../store/Context";
 
 const Hamburger = () => {
     const [show, toggle]: any = useToggle();
@@ -34,6 +35,9 @@ const Hamburger = () => {
         }
     }
 
+    const { darkMode } = contextStore()
+    let toggleClass: string = darkMode ? "brightModeLetterClass" : "darkModeLetterClass";
+
     return (
         <motion.div className={navbarStyle.navbar__hamburgerContainer}>
             <motion.button
@@ -41,15 +45,13 @@ const Hamburger = () => {
                 className={navbarStyle.navbar__hamburger}
             >
                 <motion.span
-                    className={navbarStyle.navbar__hamburger__line1}
-                    style={{ backgroundColor: "hsl(0, 0%, 98%)" }}
+                    className={`${navbarStyle.navbar__hamburger__line1} ${toggleClass}`}
                     variants={topLineAnimation} initial={false} animate={show ? "open" : "closed"}
                 >
                 </motion.span>
 
                 <motion.span
-                    className={navbarStyle.navbar__hamburger__line2}
-                    style={{ backgroundColor: "hsl(0, 0%, 98%)" }}
+                    className={`${navbarStyle.navbar__hamburger__line2} ${toggleClass}`}
                     variants={bottomLineAnimation} initial={false} animate={show ? "open" : "closed"}
                 >
 

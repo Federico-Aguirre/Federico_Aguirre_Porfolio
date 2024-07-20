@@ -9,11 +9,10 @@
     place-items: center;
     height: 60px;
     width: 100vw;
-    z-index: 9999;
-    color: variables.$black;
-    background-color: transparent;
+    color: variables.$white;
     font-size: variables.$bigFont;
     gap: 0 10px;
+    z-index: 9999;
 
     nav div {
         display: flex;
@@ -44,7 +43,6 @@
         font: inherit;
         outline: inherit;
         cursor: pointer;
-
         display: grid;
         grid-template-columns: auto auto;
         background: variables.$black;
@@ -99,12 +97,12 @@
 
     &__hiddenMenu {
         position: fixed;
-        height: calc(100vh - 60px);
+        height: 110vh;
         width: 100vw;
-        bottom: 0;
+        top: 0;
         right: 0;
         background-color: variables.$darkViolet;
-        z-index: 9;
+        z-index: -1;
         display: flex;
         place-content: center;
         align-items: center;

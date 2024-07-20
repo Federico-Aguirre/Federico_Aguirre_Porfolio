@@ -4,32 +4,59 @@ import navbarStyle from "@/base/navbar.module.scss"
 import BackgroundChange from "./BackgroundChange"
 import { contextStore } from "@/store/Context"
 import { Link } from "react-scroll"
-import { motion } from "framer-motion"
+import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import Hamburger from "./Hamburger"
+import { useState } from "react"
 
 const Navbar = () => {
   const { sectionVisible } = contextStore()
   const { darkMode } = contextStore()
   let toggleClass: string = darkMode ? "darkModeLetterClass" : "brightModeLetterClass";
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
 
-  const showAnimation = {
+  useMotionValueEvent(scrollY, "change", (latest: number): void => {
+    const previous: number = scrollY.getPrevious();
+    if (latest > previous && latest > 150 && window.innerWidth < 800) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  })
+
+  const loadingAnimation = {
     initial: {
       opacity: 0,
-      height: 100
+      y: -60,
     },
     animate: {
       opacity: 1,
-      height: 50,
+      y: 0,
       transition: {
         delay: .5,
         duration: .3,
-      }
-    }
+      },
+    },
+  }
+
+  const showAnimation = {
+    visible: {
+      y: 0,
+      transition: {
+        duration: .3,
+      },
+    },
+    hidden: {
+      y: -60,
+      transition: {
+        duration: .3,
+      },
+    },
   }
 
   return (
-    <header className={`${navbarStyle.navbar} ${toggleClass}`}>
-      <motion.nav variants={showAnimation} initial="initial" animate="animate">
+    <motion.header className={`${navbarStyle.navbar} ${toggleClass}`} variants={showAnimation} animate={hidden ? "hidden" : "visible"}>
+      <motion.nav variants={loadingAnimation} initial="initial" animate="animate">
         <div>
           <motion.div className={navbarStyle.navbar__homeLink} whileHover={{ scale: 1.2 }}>
             <Link to={"home"} smooth={true} offset={-40} duration={500} style={{ color: sectionVisible.sectionVisibleValue == "home" && "hsl(194, 85%, 62%)" }}>{"home"}</Link>
@@ -47,7 +74,7 @@ const Navbar = () => {
           <BackgroundChange />
         </div>
       </motion.nav>
-    </header>
+    </motion.header>
   )
 }
 
