@@ -39,7 +39,9 @@ const HomePage = () => {
           )}
         </div>
         :
-        <div style={{ textAlign: "center", lineHeight: "50px" }}>Federico Aguirre Web Developer</div>
+        <div className={`${homeStyle.homePage__title} ${toggleLetterClass}`} ref={homeSectionRef}>
+          <div style={{ textAlign: "center", lineHeight: "50px" }}>Federico Aguirre Web Developer</div>
+        </div>
       }
       <CallToAction />
     </section>
