@@ -61,7 +61,7 @@ const Navbar = () => {
           <motion.div className={navbarStyle.navbar__homeLink} whileHover={{ scale: 1.2 }}>
             <Link to={"home"} smooth={true} offset={-40} duration={500} style={{ color: sectionVisible.sectionVisibleValue == "home" && "hsl(194, 85%, 62%)" }}>{"home"}</Link>
           </motion.div>
-          <Hamburger />
+          {window.innerWidth < 800 && <Hamburger />}
           <motion.div className={navbarStyle.navbar__projectLink} whileHover={{ scale: 1.2 }}>
             <Link to={"project"} smooth={true} offset={-40} duration={500} style={{ color: sectionVisible.sectionVisibleValue == "project" && "hsl(194, 85%, 62%)" }}>{"project"}</Link>
           </motion.div>
