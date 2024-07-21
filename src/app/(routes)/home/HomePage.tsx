@@ -27,22 +27,17 @@ const HomePage = () => {
 
   return (
     <section className={homeStyle.homePage} id="home">
-      {window.innerWidth > 1024 && <ParticlesBackground />}
-      {window.innerWidth > 1024 ?
-        <div className={`${homeStyle.homePage__title} ${toggleLetterClass}`} ref={homeSectionRef}>
-          {sentence.map((letter: string, index: number) =>
-            <TextSpan key={index}>
-              <div>
-                {letter === " " ? "\u00A0" : letter}
-              </div>
-            </TextSpan>
-          )}
-        </div>
-        :
-        <div className={`${homeStyle.homePage__title} ${toggleLetterClass}`} ref={homeSectionRef}>
-          <div style={{ textAlign: "center", lineHeight: "50px" }}>Federico Aguirre Web Developer</div>
-        </div>
-      }
+      {global.window && window.innerWidth > 1024 && <ParticlesBackground />}
+      <div className={`${homeStyle.homePage__title} ${toggleLetterClass}`} ref={homeSectionRef}>
+        {global.window && window.innerWidth > 1024 ? sentence.map((letter: string, index: number) =>
+          <TextSpan key={index}>
+            <div>
+              {letter === " " ? "\u00A0" : letter}
+            </div>
+          </TextSpan>
+        ) : <div style={{ textAlign: "center", lineHeight: "50px" }}>Federico Aguirre Web Developer</div>
+        }
+      </div>
       <CallToAction />
     </section>
   )
